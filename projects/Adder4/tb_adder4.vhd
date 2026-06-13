@@ -37,15 +37,63 @@ architecture BEHAVIORAL of tb_adder4 is
         );
 	  
         -- Stimulus process
-        main: process
+        TEST: process
             begin
-                sig_a4 <= "1110";
-                sig_b4 <= "0001";
             test_runner_setup(runner, runner_cfg);
-                report "SUM: " & hstr(sig_sum4);
-                report "C_OUT " & str(sig_c_out);
-                report "A: " & hstr(sig_a4);
-                report "B: " & hstr(sig_b4);
+                    sig_a4 <= "0000";
+                    sig_b4 <= "0000";
+
+                    wait for 10 ns;
+                    report "SUM: " & hstr(sig_sum4);
+                    report "C_OUT " & str(sig_c_out);
+                    report "A: " & hstr(sig_a4);
+                    report "B: " & hstr(sig_b4);
+
+                    sig_a4 <= "0110";
+                    sig_b4 <= "1100";
+
+                    wait for 10 ns;
+                    report "SUM: " & hstr(sig_sum4);
+                    report "C_OUT " & str(sig_c_out);
+                    report "A: " & hstr(sig_a4);
+                    report "B: " & hstr(sig_b4);
+
+                    sig_a4 <= "1111";
+                    sig_b4 <= "1100";
+
+                    wait for 10 ns;
+                    report "SUM: " & hstr(sig_sum4);
+                    report "C_OUT " & str(sig_c_out);
+                    report "A: " & hstr(sig_a4);
+                    report "B: " & hstr(sig_b4);
+
+                    sig_a4 <= "0110";
+                    sig_b4 <= "0111";
+
+                    wait for 10 ns;
+                    report "SUM: " & hstr(sig_sum4);
+                    report "C_OUT " & str(sig_c_out);
+                    report "A: " & hstr(sig_a4);
+                    report "B: " & hstr(sig_b4);
+
+                    sig_a4 <= "0110";
+                    sig_b4 <= "1110";
+
+                    wait for 10 ns;
+                    report "SUM: " & hstr(sig_sum4);
+                    report "C_OUT " & str(sig_c_out);
+                    report "A: " & hstr(sig_a4);
+                    report "B: " & hstr(sig_b4);
+
+                    sig_a4 <= "1111";
+                    sig_b4 <= "1111";
+            
+                    wait for 10 ns;
+                    report "SUM: " & hstr(sig_sum4);
+                    report "C_OUT " & str(sig_c_out);
+                    report "A: " & hstr(sig_a4);
+                    report "B: " & hstr(sig_b4);
             test_runner_cleanup(runner); -- Simulation ends here
-        end process;
+            wait;
+        end process TEST;
 end BEHAVIORAL;
